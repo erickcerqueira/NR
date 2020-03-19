@@ -180,7 +180,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                         </div>
                                         <div class="font-weight-bold">
                                             <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                            <div class="small text-gray-500">Emily Fowler ú· 58m</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -190,7 +190,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                         </div>
                                         <div>
                                             <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                            <div class="small text-gray-500">Jae Chun ú· 1d</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -200,7 +200,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                         </div>
                                         <div>
                                             <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                            <div class="small text-gray-500">Morgan Alvarez ú· 2d</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -210,7 +210,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                         </div>
                                         <div>
                                             <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                            <div class="small text-gray-500">Chicken the Dog ú· 2w</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -268,7 +268,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-sm">
+                                    <table class="table table-bordered table-hover table-sm" id="telefone">
                                         <thead>
                                             <tr style="white-space: nowrap;">
                                                 <th scope="col" class="text-center">ID</th>
@@ -283,10 +283,10 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                                 <th scope="col" class="text-center">Nº de Série</th>  
                                                 <th scope="col" class="text-center">Tipo de Defeito</th>
                                                 <th scope="col" class="text-center">Situação do Aparelho</th>  
-                                                <th scope="col" class="text-center">Nº da Linha</th>
+                                                <th scope="col" class="text-center">Linha</th>
                                                 <th scope="col" class="text-center">IMEI Chip</th>
-                                                <th scope="col" class="text-center">Qtd. Dados</th>
-                                                <th scope="col" class="text-center">Qtd. Minutos</th>  
+                                                <th scope="col" class="text-center">Dados</th>
+                                                <th scope="col" class="text-center">Minutos</th>  
                                                 <th scope="col" class="text-center">Compartilhado</th>  
                                                 <th scope="col" class="text-center">Situação da Linha</th>  
                                                 <th scope="col" class="text-center">Valor Mensal</th>  
@@ -322,7 +322,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                                     <td class="text-center"><?php echo $row_tel['qtdminutos']; ?></td>
                                                     <td class="text-center"><?php echo $row_tel['compartilhado']; ?></td>
                                                     <td class="text-center"><?php echo $row_tel['situacaodalinha']; ?></td>
-                                                    <td class="text-center"><?php echo $row_tel['valor']; ?></td>
+                                                    <td class="text-center">R$<?php echo $row_tel['valor']; ?></td>
                                                     <td class="text-center"><?php echo $row_tel['endereco']; ?></td>
                                                     <td class="text-center"><?php echo $row_tel['cidade']; ?></td>
                                                     <td class="text-center"><?php echo $row_tel['cep']; ?></td>
@@ -331,19 +331,34 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                                     <td class="text-center"><?php echo $row_tel['datadecriacao']; ?></td>
                                                     <td class="text-center">
                                                         <div class="btn-group">
-                                                        <span class="d-none d-md-block">
-                                                            <a href="include/editar-telefone.php?id=<?php echo $row_tel['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
-                                                            <a href="fpdf/gerar-termo-telefone.php?id=<?php echo $row_tel['id']; ?>" class="btn btn-info btn-sm" target="_blank">Termo</a>
-                                                            <a href="include/apagar-telefone.php?id=<?php echo $row_tel['id']; ?>" class="btn btn-danger btn-sm">Excluir</a>
-                                                        </span>
-                                                        </div>
+                                                            <button type="button" class="btn btn-secondary">Ações</button>
+                                                            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                <span class="sr-only">Toggle Dropdown</span>
+                                                            </button>
+                                                            <div class="dropdown-menu">
+                                                                <a class="dropdown-item" href="include/editar-telefone.php?id=<?php echo $row_tel['id']; ?>">Modificar</a>
+                                                                <a class="dropdown-item" href="">Visualizar</a>
+                                                                <a class="dropdown-item" href="include/apagar-telefone.php?id=<?php echo $row_tel['id']; ?>">Excluir</a>
+                                                                <a class="dropdown-item" href="fpdf/gerar-termo-telefone.php?id=<?php echo $row_tel['id']; ?>" target="_blank">Gerar Termo</a>
+                                                                <div class="dropdown-divider"></div>
+                                                                <a class="dropdown-item" href="#">Anexar Termo</a>
+                                                            </div>
+                                                        </div><!--
+                                                        <div class="btn-group">
+                                                            <span class="d-none d-md-block">
+                                                                <a href="include/editar-telefone.php?id=<?php echo $row_tel['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
+                                                                <a href="fpdf/gerar-termo-telefone.php?id=<?php echo $row_tel['id']; ?>" class="btn btn-info btn-sm" target="_blank">Termo</a>
+                                                                <a href="include/apagar-telefone.php?id=<?php echo $row_tel['id']; ?>" class="btn btn-danger btn-sm">Excluir</a>
+                                                            </span>
+                                                        </div>-->
                                                     </td>
                                                 </tr>
-                                            <?php
+                                                <?php
                                             }
                                             ?>
                                         </tbody> 
                                     </table>
+                                    <!--
                                     <nav aria-label="paginacao">
                                         <ul class="pagination pagination-sm justify-content-center">
                                             <li class="page-item disabled">
@@ -357,10 +372,10 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                                             <li class="page-item"><a class="page-link" href="#">4</a></li>
                                             <li class="page-item"><a class="page-link" href="#">5</a></li>
                                             <li class="page-item">
-                                                <a class="page-link" href="#">Última</a>
+                                                <a class="page-link" href="#">Ãltima</a>
                                             </li>
                                         </ul>
-                                    </nav>
+                                    </nav>-->
                                 </div>
                             </div>
                         </div>
@@ -396,7 +411,7 @@ $resultado_tel = mysqli_query($conn, $result_tel);
                 <div class="modal-header bg-primary text-light">
                     <h5 class="modal-title" id="exampleModalLabel">DESCONECTAR</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
+                        <span aria-hidden="true">Ã</span>
                     </button>
                 </div>
                 <div class="modal-body">Tem certeza de que deseja sair do sistema?</div>
@@ -438,6 +453,42 @@ $resultado_tel = mysqli_query($conn, $result_tel);
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Ajuste no datatables, foi comentado o trecho do código que representava a paginação pra deixar a paginação do datatables
+agir, e aqui abaixo está o código que faz o datatables funcionar, ainda será necessário ajustar o código do datatables pra
+poder traduzir as informações e ajustar o design pelo css -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+
+
+    <script>
+        $(document).ready(function () {
+            $('#telefone').DataTable();
+        });
+        $("#telefone").dataTable({
+            "bJQueryUI": true,
+            "oLanguage": {
+                "sProcessing": "Processando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "Não foram encontrados resultados",
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                "sInfoFiltered": "",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Primeiro",
+                    "sPrevious": "Anterior",
+                    "sNext": "Seguinte",
+                    "sLast": "Último"
+                }
+            }
+        })
+    </script>
 
 </body>
 

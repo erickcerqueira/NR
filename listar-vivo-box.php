@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!empty($_SESSION['id'])) {
-    //echo "Olá " . $_SESSION['nome'] . ", Bem vindo <br>";
+    //echo "Ol� " . $_SESSION['nome'] . ", Bem vindo <br>";
 } else {
     $_SESSION['msg'] = "Por favor, conecte-se!";
     header("Location: login.php");
@@ -180,7 +180,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                         </div>
                                         <div class="font-weight-bold">
                                             <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                            <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                            <div class="small text-gray-500">Emily Fowler �� 58m</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -190,7 +190,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                         </div>
                                         <div>
                                             <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                                            <div class="small text-gray-500">Jae Chun · 1d</div>
+                                            <div class="small text-gray-500">Jae Chun �� 1d</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -200,7 +200,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                         </div>
                                         <div>
                                             <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                                            <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                            <div class="small text-gray-500">Morgan Alvarez �� 2d</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item d-flex align-items-center" href="#">
@@ -210,7 +210,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                         </div>
                                         <div>
                                             <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                                            <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                            <div class="small text-gray-500">Chicken the Dog �� 2w</div>
                                         </div>
                                     </a>
                                     <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
@@ -222,7 +222,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo "Olá, " . $_SESSION['nome']; ?></span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo "Ol�, " . $_SESSION['nome']; ?></span>
                                     <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
                                 </a>
                                 <!-- Dropdown - User Information -->
@@ -233,7 +233,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                     </a>
                                     <a class="dropdown-item" href="#">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Configurações
+                                        Configura��es
                                     </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="include/logout.php" data-toggle="modal" data-target="#logoutModal">
@@ -269,7 +269,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-sm">
+                                    <table class="table table-bordered table-hover table-sm" id="vivo">
                                         <thead>
                                             <tr style="white-space: nowrap;">
                                                 <th scope="col">ID</th>
@@ -340,7 +340,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                             <?php }
                                             ?>
                                         </tbody> 
-                                    </table>
+                                    </table><!--
                                     <nav aria-label="paginacao">
                                         <ul class="pagination pagination-sm justify-content-center">
                                             <li class="page-item disabled">
@@ -357,7 +357,7 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
                                                 <a class="page-link" href="#">Última</a>
                                             </li>
                                         </ul>
-                                    </nav>
+                                    </nav>-->
                                 </div>
                             </div>
                         </div>
@@ -435,6 +435,37 @@ $resultado_vivo = mysqli_query($conn, $result_vivo);
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <script>
+        $(document).ready(function () {
+            $('#vivo').DataTable();
+        });
+
+        $("#vivo").dataTable({
+            "bJQueryUI": true,
+            "oLanguage": {
+                "sProcessing": "Processando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "Não foram encontrados resultados",
+                "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                "sInfoFiltered": "",
+                "sInfoPostFix": "",
+                "sSearch": "Buscar:",
+                "sUrl": "",
+                "oPaginate": {
+                    "sFirst": "Primeiro",
+                    "sPrevious": "Anterior",
+                    "sNext": "Seguinte",
+                    "sLast": "Último"
+                }
+            }
+        })
+
+    </script>
 
 </body>
 

@@ -43,7 +43,7 @@ if (!empty($_SESSION['id'])) {
                 <?php
                 include_once('include/menu.php');
                 ?>
-                
+
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
 
@@ -415,89 +415,93 @@ if (!empty($_SESSION['id'])) {
                                                 </select> 
                                             </div>
                                             <div class="form-group">
-                                                <label>Anexar Termo de Responsabilnameade</label>
-                                                <input type="file" class="form-control-file" name="document">
+                                                <label>Anexar Termo de Responsabilidade</label>
+                                                <input type="file" class="form-control-file" name="file">
                                             </div>
+
                                         </div>
-                                        <input type="submit" name="btnNovoTelefone" value="Cadastrar" class="btn btn-primary">
-                                        </form>
+
+
                                     </div>
+                                    <input type="submit" name="btnNovoTelefone" value="Cadastrar" class="btn btn-primary">
+                                </form>
                             </div>
-
                         </div>
-                        <!-- /.container-fluid -->
 
                     </div>
-                    <!-- End of Main Content -->
+                    <!-- /.container-fluid -->
 
-                    <!-- Footer -->
-                    <?php
-                    include_once 'include/footer.php';
-                    ?>
                 </div>
-                <!-- End of Footer -->
+                <!-- End of Main Content -->
 
+                <!-- Footer -->
+                <?php
+                include_once 'include/footer.php';
+                ?>
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-primary text-light">
-                        <h5 class="modal-title" id="exampleModalLabel">DESCONECTAR</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Tem certeza de que deseja sair do sistema?</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="include/logout.php">Logout</a>
-                    </div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">DESCONECTAR</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="ApagarRegistro" tabindex="-1" role="dialog" aria-labelledby="ApagarRegistroLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header bg-danger text-light">
-                        <h5 class="modal-title" id="exampleModalLabel">EXCLUIR ITEM</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Tem certeza de que deseja excluir o item selecionado?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger">Apagar</button>
-                    </div>
+                <div class="modal-body">Tem certeza de que deseja sair do sistema?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="include/logout.php">Logout</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="ApagarRegistro" tabindex="-1" role="dialog" aria-labelledby="ApagarRegistroLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">EXCLUIR ITEM</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza de que deseja excluir o item selecionado?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger">Apagar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    </body>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+</body>
 
 </html>

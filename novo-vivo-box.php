@@ -412,7 +412,7 @@ if (!empty($_SESSION['id'])) {
                                             <input type="file" class="form-control-file" name="termo">
                                         </div>
                                     </div>
-                                    <input type="submit" name="btnNovoVivoBox" value="Cadastrar" class="btn btn-success" >
+                                    <input type="submit" name="btnNovoVivoBox" value="Cadastrar" class="btn btn-primary">
                                 </form>
                             </div>
                         </div>
